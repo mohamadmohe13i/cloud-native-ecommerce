@@ -19,6 +19,7 @@ services:
     volumes:
       - cache:/var/lib/redis/data
   shop:
+    image: shop
     restart: always
     ports:
       - '8080:8080'
