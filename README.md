@@ -2,7 +2,7 @@
 This project use [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 ## Test
-tests can be done standalone without any dependency because it uses embedded `h2` and `ehcache` for test.
+tests can be done standalone without any dependency because it uses embedded `h2` and `in-memory` cache for tests.
 <br>
 tests have written with Junit and Mockk library.
 <br>
