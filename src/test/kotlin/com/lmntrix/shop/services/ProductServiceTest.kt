@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.cache.annotation.EnableCaching
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.util.*
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
+@EnableCaching
 class ProductServiceTest {
     @Autowired
     lateinit var productService: ProductService
@@ -35,7 +37,6 @@ class ProductServiceTest {
             product.id = 1234L
             product
         }
-        productService = ProductService(productRepository)
     }
 
     @Test
@@ -53,10 +54,15 @@ class ProductServiceTest {
 
     @Test
     @DirtiesContext
-    fun x() {
+    fun `cache should works correctly`() {
         productService.find(1)
         productService.find(1)
-        verify(exactly = 1) { productRepository.findById(1) }
+        productService.find(1)
+        productService.find(2)
+        productService.find(2)
+        verify(exactly = 1) { productRepository.findById(2) }
     }
+
+
 
 }
