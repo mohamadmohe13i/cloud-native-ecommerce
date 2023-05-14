@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.util.*
 
@@ -50,12 +51,12 @@ class ProductServiceTest {
     }
 
 
-//    @Test
-//    @DirtiesContext
-//    fun x() {
-//        productService.find(1)
-//        productService.find(1)
-//        verify(exactly = 1) { productRepository.findById(1) }
-//    }
+    @Test
+    @DirtiesContext
+    fun x() {
+        productService.find(1)
+        productService.find(1)
+        verify(exactly = 1) { productRepository.findById(1) }
+    }
 
 }
