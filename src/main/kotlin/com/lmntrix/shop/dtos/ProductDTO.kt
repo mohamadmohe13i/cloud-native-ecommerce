@@ -1,4 +1,4 @@
 package com.lmntrix.shop.dtos
 
-data class ProductDTO(val id: Long? = null, val name: String = "")
+data class ProductDTO(var id: Long? = null, var name: String = "")
 
