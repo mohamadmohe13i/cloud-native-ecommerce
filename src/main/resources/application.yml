@@ -17,3 +17,8 @@ spring:
       host: ${REDIS_HOST:localhost}
       database: ${REDIS_DB:0}
       timeout: ${REDIS_TIME_OUT:60000}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
