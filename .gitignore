@@ -38,4 +38,4 @@ out/
 
 
 ### Terraform ###
-terraform/.terraform
+terraform/.terraform/
