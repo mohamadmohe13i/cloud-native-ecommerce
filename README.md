@@ -1,3 +1,8 @@
+## About the Project
+I created this repository to build a cloud-native simple shop application 
+ by using cutting-edge technologies which I mentioned below.
+<br>
+
 ## Repository Management
 This project use [Github](https://github.com) with a
 [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
@@ -20,8 +25,8 @@ use `make test` to run tests.
 - first of all install [minikube](), [kubectl](), [helm](), [terraform]()
 - start a minikube cluster with `minikube start` command
 - change directory to /terraform
-- create a k8s cluster by `terraform apply --auto-approve` command
-- cluster should contain below resources
+- create a k8s cluster by running `terraform apply --auto-approve` command
+- now the cluster should contain below resources
   - a simple k8s cluster 
   - monitoring stack (prometheus, grafana, etc) on `monitoring-production` namespace
 ## Monitoring
