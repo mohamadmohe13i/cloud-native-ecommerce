@@ -25,9 +25,11 @@ resource "kubernetes_namespace" "monitoring-production" {
 resource "helm_release" "prometheus" {
   chart = "./prometheus"
   name  = "prometheus"
+  namespace = "monitoring-production"
 }
-
+#
 resource "helm_release" "grafana" {
   chart = "./grafana"
   name  = "grafana"
+  namespace = "monitoring-production"
 }

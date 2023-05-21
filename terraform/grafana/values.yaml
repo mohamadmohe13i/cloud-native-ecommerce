@@ -13,6 +13,7 @@ global:
   #   - pullSecret2
   imagePullSecrets: []
 
+fullnameOverride: "grafana"
 rbac:
   create: true
   ## Use an existing ClusterRole/Role (depending on rbac.namespaced false/true)
@@ -1036,7 +1037,7 @@ sidecar:
 
 ## Override the deployment namespace
 ##
-namespaceOverride: "monitoring-production"
+namespaceOverride: ""
 
 ## Number of old ReplicaSets to retain
 ##

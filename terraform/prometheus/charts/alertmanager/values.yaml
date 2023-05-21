@@ -23,7 +23,7 @@ extraSecretMounts: []
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "prometheus-alertmanager"
 
 automountServiceAccountToken: true
 

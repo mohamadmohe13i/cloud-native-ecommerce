@@ -218,7 +218,7 @@ secrets: []
 #   mountPath: <mountPatch>
 ## Override the deployment namespace
 ##
-namespaceOverride: "monitoring-production"
+namespaceOverride: ""
 
 ## Additional containers for export metrics to text file
 ##
