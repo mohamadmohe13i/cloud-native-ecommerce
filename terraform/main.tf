@@ -10,9 +10,15 @@ provider "helm" {
   }
 }
 
-resource "kubernetes_namespace" "minikube-namespace" {
+resource "kubernetes_namespace" "shop-production" {
   metadata {
     name = "shop-production"
+  }
+}
+
+resource "kubernetes_namespace" "postgres-production" {
+  metadata {
+    name = "postgres-production"
   }
 }
 
@@ -32,4 +38,10 @@ resource "helm_release" "grafana" {
   chart = "./grafana"
   name  = "grafana"
   namespace = "monitoring-production"
+}
+
+resource "helm_release" "postgres" {
+  chart = "./postgresql"
+  name  = "postgres"
+  namespace = "postgres-production"
 }
