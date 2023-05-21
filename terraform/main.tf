@@ -22,6 +22,12 @@ resource "kubernetes_namespace" "postgres-production" {
   }
 }
 
+resource "kubernetes_namespace" "redis-production" {
+  metadata {
+    name = "redis-production"
+  }
+}
+
 resource "kubernetes_namespace" "monitoring-production" {
   metadata {
     name = "monitoring-production"
@@ -44,4 +50,10 @@ resource "helm_release" "postgres" {
   chart = "./postgresql"
   name  = "postgres"
   namespace = "postgres-production"
+}
+
+resource "helm_release" "redis" {
+  chart = "./redis"
+  name  = "redis"
+  namespace = "redis-production"
 }
