@@ -39,23 +39,50 @@ spec:
               protocol: TCP
           env:
             - name: SERVER_PORT
-              value: '8080'
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: serverPort
             - name: POSTGRES_USERNAME
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: shop
+                  key: postgresUsername
             - name: POSTGRES_PASSWORD
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: shop
+                  key: postgresPassword
             - name: POSTGRES_HOST
-              value: postgres-postgresql.postgres-production
-#            - name: POSTGRES_PORT
-#              value: 5432
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: postgresHost
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: postgresPort
             - name: POSTGRES_DB
-              value: shop
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: postgresDb
             - name: REDIS_HOST
-              value: redis-master.redis-production
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: redisHost
+            - name: REDIS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: shop
+                  key: redisPort
             - name: REDIS_PASSWORD
-              value: redis
-#            - name: REDIS_PORT
-#              value: 6379
+              valueFrom:
+                secretKeyRef:
+                  name: shop
+                  key: redisPassword
           livenessProbe:
             httpGet:
               path: /health
