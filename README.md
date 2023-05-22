@@ -25,13 +25,27 @@ use `make test` to run tests.
 - first of all install [minikube](), [kubectl](), [helm](), [terraform]()
 - start a minikube cluster with `minikube start` command
 - change directory to /terraform
+- run `terraform init` command to install required providers
 - create a k8s cluster by running `terraform apply --auto-approve` command
 - now the cluster should contain below resources
   - a simple k8s cluster 
+  - a postgres on `postgres-production` namespace
+  - a stand alone redis on `redis-production` namespace
   - monitoring stack (prometheus, grafana, etc) on `monitoring-production` namespace
+
+
+## Deploy `Shop` application to k8s
+- create `shop` docker image using `make image` command
+- add image to minikube via `minikube image load shop:<tag>` command (of course you can config `Jib` in `build.gradle.kts`
+file to push the docker image
+automatically to your image registry)
+- cd to `/helm` and run `helm install shop ./shop` command (remember to change your namespace to `shop-production` before
+running command the command)
+
+
 ## Monitoring
 - this project use [prometheus]() and [grafana]()
-- how to access grafana and conenct it to prometheus
+- how to access grafana and connect it to prometheus
   - after creating cluster with terraform you can use port-forwarding on `grafana service` to access the grafana dashboard
   - decode (base64) user and password in `grafana secret`
   - after sign-in add a `datasource` and use `http://prometheus-server` for url part
