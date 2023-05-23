@@ -22,8 +22,9 @@ use `make test` to run tests.
 
 ## Create K8S Cluster (Terraform)
 - this project use IaC approach with [terraform](https://www.terraform.io/) tools
-- first of all install [minikube](), [kubectl](), [helm](), [terraform]()
-- start a minikube cluster with `minikube start` command
+- first of all install [minikube](https://minikube.sigs.k8s.io/),
+[kubectl](https://kubernetes.io/docs/tasks/tools/), [helm](https://helm.sh/), [terraform](https://www.terraform.io/)
+- start a K8s cluster with `minikube start` command
 - change directory to /terraform
 - run `terraform init` command to install required providers
 - create a k8s cluster by running `terraform apply --auto-approve` command
@@ -44,7 +45,7 @@ running command the command)
 
 
 ## Monitoring
-- this project use [prometheus]() and [grafana]()
+- this project use [prometheus](https://prometheus.io/) and [grafana](https://grafana.com/)
 - how to access grafana and connect it to prometheus
   - after creating cluster with terraform you can use port-forwarding on `grafana service` to access the grafana dashboard
   - decode (base64) user and password in `grafana secret`
