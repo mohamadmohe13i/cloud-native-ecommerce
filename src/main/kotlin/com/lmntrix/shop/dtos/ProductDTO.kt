@@ -1,4 +1,9 @@
 package com.lmntrix.shop.dtos
 
-data class ProductDTO(var id: Long? = null, var name: String = "")
+import jakarta.validation.constraints.NotBlank
+
+data class ProductDTO(
+    var id: Long? = null,
+    @field:NotBlank(message = "name is required.") var name: String?
+)
 
