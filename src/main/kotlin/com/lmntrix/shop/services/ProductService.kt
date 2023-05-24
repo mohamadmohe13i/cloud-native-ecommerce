@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 class ProductService(private val repository: ProductRepository) {
 
     fun save(productDTO: ProductDTO): ProductDTO {
-        val product = Product(name = productDTO.name)
+        val product = Product(name = productDTO.name!!)
         repository.save(product)
         return ProductDTO(id = product.id, name = product.name)
     }
