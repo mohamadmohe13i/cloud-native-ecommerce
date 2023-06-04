@@ -25,7 +25,11 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.mapstruct:mapstruct:1.5.5.Final")
     kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
+
     implementation(project(":core"))
+
+
+    implementation("com.google.code.gson:gson:2.10.1")
 
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -56,4 +60,10 @@ jib {
     to {
         image = "shop"
     }
+}
+
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }

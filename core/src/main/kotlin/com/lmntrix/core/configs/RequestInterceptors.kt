@@ -25,7 +25,6 @@ class RequestInterceptors : WebMvcConfigurer {
 @Component
 class MyInterceptor : HandlerInterceptor {
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
-        println("hi there")
         return super.preHandle(request, response, handler)
     }
 }
